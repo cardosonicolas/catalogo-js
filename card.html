@@ -20,29 +20,40 @@
       font-family: "Open Sans", sans-serif;
     }
 
-    .container {
-      display: flex;
-      flex-flow: column wrap;
-      align-items: center;
-      text-align: center;
-    }
-
     .card {
       height: 350px;
       max-width: 300px;
+      margin: 1em;
       display: flex;
       flex-direction: column;
       border-radius: 5px;
-      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
     }
 
-    .card img {
+    .card-img {
+      background-image: url("http://placeimg.com/1366/720/any");
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: #fff;
       width: 100%;
-      height: auto;
+      height: 50%;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .card-img p {
+      margin: 5px;
+      padding: .5em;
+      max-width: max-content;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
     }
 
     .card-body {
-      height: inherit;
+      height: 30%;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-evenly;
@@ -50,31 +61,29 @@
       align-content: center;
     }
 
-    .card-body span {
-      color: #3498db;
-      font-size: 30px;
+    .card-body h3 {
+      font-size: 25px;
+    }
+
+    .hero-image h1 {
+      font-size: 5vh;
     }
   </style>
 </head>
 
 <body>
-  <section class="container">
-    <h2>Productos</h2>
-    <div class="card">
-      <img src="http://placeimg.com/640/480/any" alt="any">
-      <div class="card-body">
-        <h3>Producto 1</h3>
-        <span>$0.00</span>
+
+  <section>
+    <section class="cards">
+      <div class="card">
+        <div class="card-img">
+          <p>$00.00</p>
+        </div>
+        <div class="card-body">
+          <h3>Producto 1</h3>
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <img src="http://placeimg.com/640/480/any" alt="any">
-      <div class="card-body">
-        <h3>Producto 1</h3>
-        <span>$0.00</span>
-      </div>
-    </div>
-  </section>
+    </section>
 </body>
 
 </html>

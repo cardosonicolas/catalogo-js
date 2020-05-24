@@ -14,12 +14,12 @@
 <body>
   <!-- HEADER -->
   <header class="header">
-    <img src="/img/logo.jpg" alt=" Logo">
+    <img src="/img/logo.jpg" alt=" Logo" class="logo">
     <nav class="menu">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#page-1">Catalogo</a></li>
-        <li><a href="#page-2">Contacto</a></li>
+      <ul class="menu-items">
+        <li><a href="#" class="menu-item">Home</a></li>
+        <li><a href="#page-1" class="menu-item">Catálogo</a></li>
+        <li><a href="#page-2" class="menu-item">Contacto</a></li>
       </ul>
     </nav>
   </header>
@@ -27,20 +27,18 @@
 
   <main>
     <section class="hero-image">
-      <div>
-      </div>
     </section>
     <!-- CATALOGO -->
     <section class="cards">
-      <h2 id="page-1" class="title">Productos</h2>
+      <h2 id="page-1">Catálogo</h2>
       <div class="card">
-        <img src="/img/header.jpg" alt="any" class="card-img">
+        <div class="card-img">
+          <p class="card-precio">$00.00</p>
+        </div>
         <div class="card-body">
-          <h3>Producto 1</h3>
-          <span>$0.00</span>
+          <h3 class="card-prod">Producto 1</h3>
         </div>
       </div>
-
     </section>
     <!-- FIN CATALOGO -->
   </main>
@@ -52,9 +50,9 @@
       <h4>MAPA WEB</h4>
       <br>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Catalogo</a></li>
-        <li><a href="#">About</a></li>
+        <li><a href="#" class="footer-enlaces">Home</a></li>
+        <li><a href="#" class="footer-enlaces">Catálogo</a></li>
+        <li><a href="#" class="footer-enlaces">About</a></li>
       </ul>
     </div>
     <div>
@@ -62,24 +60,23 @@
       <h4>INFORMACION</h4>
       <br>
       <ul>
-        <li><a href="">Aviso legal</a></li>
-        <li><a href="">Política de privacidad</a></li>
-        <li><a href="">Política de cookies</a></li>
+        <li><a href="" class="footer-enlaces">Aviso legal</a></li>
+        <li><a href="" class="footer-enlaces">Política de privacidad</a></li>
+        <li><a href="" class="footer-enlaces">Política de cookies</a></li>
       </ul>
     </div>
     <div>
       <br>
       <h4 id="page-2">SEGUINOS</h4>
       <ul class="redes">
-        <li><a href="https://www.facebook.com/Niicocardosoo/" target="blank"><i class="fab fa-facebook"></i></a></li>
-        <li><a href="https://instagram.com/nicoh.cardoh" target="blank"><i class="fab fa-instagram "></i></a></li>
+        <li><a href="https://www.facebook.com/Niicocardosoo/" target="blank" class="footer-enlaces"><i
+              class="fab fa-facebook"></i></a></li>
+        <li><a href="https://instagram.com/nicoh.cardoh" target="blank" class="footer-enlaces"><i
+              class="fab fa-instagram "></i></a></li>
       </ul>
     </div>
   </footer>
   <!--FIN FOOTER -->
-
-
-  <!--     <p>nicohcardoh &copy; 2020 - All right reserved.</p> -->
   <!-- <script src="js/index.js"></script> -->
 </body>
 
