@@ -5,7 +5,7 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Document
   body
-    form(action='/add', method='post')
+    form(action='/add', method='POST', enctype="multipart/form-data")
       label(for='fname') Titulo
       br
       input(type='text', name='title')
@@ -15,4 +15,10 @@ html(lang='en')
       input(type='text', name='price')
       br
       br
+      input(type="file", name= "image")
+      br
+      br
       input(type='submit', value='Enviar')
+  
+    each prod in prods
+      p=prod.title

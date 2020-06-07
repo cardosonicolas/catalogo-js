@@ -4,7 +4,6 @@ html(lang='es')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin='anonymous')
-    // CSS Style
     link(rel='stylesheet', href='css/index.css')
     title ProyectoL
   body
@@ -29,40 +28,11 @@ html(lang='es')
       h2#page-1 Catálogo
       section.flex-container.cards
       // FIN CATALOGO
-      // FOOTER
-      footer.footer.flex-container-footer
-        .flex-item
-          div
-            br
-            h4 MAPA WEB
-            ul
-              li
-                a.footer-enlaces(href='#') Home
-              li
-                a.footer-enlaces(href='#page-1') Catálogo
-              li
-                a.footer-enlaces(href='#') About
-        .flex-item
-          div
-            br
-            h4 INFORMACIÓN
-            ul
-              li
-                a.footer-enlaces(href='') Aviso legal
-              li
-                a.footer-enlaces(href='') Política de privacidad
-              li
-                a.footer-enlaces(href='') Política de cookies
-        .flex-item
-          div
-            br
-            h4#page-2 SÍGUENOS
-            ul.redes
-              li
-                a.footer-enlaces(href='https://www.facebook.com/Niicocardosoo/', target='blank')
-                  i.fab.fa-facebook
-              li
-                a.footer-enlaces(href='https://instagram.com/nicoh.cardoh', target='blank')
-                  i.fab.fa-instagram
-      // FIN FOOTER
+
+
+
+
+
+      
+    include partials/footer.pug
       script(src='js/javascript.js')

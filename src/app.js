@@ -3,10 +3,10 @@ const express = require("express");
 const app = express();
 const sequelize = require("./database/db");
 
-
 // importing router
 const indexRoutes = require("./routes/index");
-const taskRoutes = require("./routes/task")
+const taskRoutes = require("./routes/task");
+const prodRoutes = require("./routes/product");
 
 // settings
 app.set("port", process.env.PORT || 3000);
@@ -18,20 +18,20 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: false }));
 
 // routes
-app.use(express.json())
+app.use(express.json());
 app.use("/", indexRoutes);
 app.use("/", taskRoutes);
+app.use("/", prodRoutes);
 
 // starting the server
 app.listen(app.get("port"), () => {
   sequelize
     .sync({ force: false })
     .then(() => {
-      console.log('Connection has been established successfully.');
+      console.log("Connection has been established successfully.");
     })
-    .catch(err => {
-      console.error('Unable to connect to the database:', err);
+    .catch((err) => {
+      console.error("Unable to connect to the database:", err);
     });
   console.log(`Server on port ${app.get("port")}`);
 });
-
