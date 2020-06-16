@@ -1,11 +1,10 @@
-const path = require("path");
 const express = require("express");
 const app = express();
+const path = require("path");
 const sequelize = require("./database/db");
 
 // importing router
 const indexRoutes = require("./routes/index");
-const taskRoutes = require("./routes/task");
 const prodRoutes = require("./routes/product");
 
 // settings
@@ -16,11 +15,10 @@ app.set("view engine", "pug");
 // middlewares
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // routes
-app.use(express.json());
 app.use("/", indexRoutes);
-app.use("/", taskRoutes);
 app.use("/", prodRoutes);
 
 // starting the server

@@ -7,7 +7,7 @@ const sequelize = new Sequelize(
   database.password,
   {
     dialect: "sqlite",
-    storage: "./src/database/testdb.sqlite",
+    storage: "./src/database/db.sqlite",
   }
 );
 

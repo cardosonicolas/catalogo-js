@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
 const upload = multer({
   storage,
   dest: path.join(__dirname, "../public/img"),
-  limits: { fileSize: 9000000 },
+  limits: { fileSize: 5000000 },
   fileFilter: (req, file, cb) => {
     const filetypes = /jpge|jpg|png/;
     const minetype = filetypes.test(file.mimetype);

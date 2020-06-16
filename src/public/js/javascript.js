@@ -1,25 +1,9 @@
-const prod1 = {
+/* const prod1 = {
   nombre: "Producto 1",
   precio: "$" + 100,
 };
-const prod2 = {
-  nombre: "Producto 2",
-  precio: "$" + 200,
-};
-const prod3 = {
-  nombre: "Producto 3",
-  precio: "$" + 300,
-};
-const prod4 = {
-  nombre: "Producto 4",
-  precio: "$" + 400,
-};
-const prod5 = {
-  nombre: "Producto 5",
-  precio: "$" + 500,
-};
 
-const lista = [prod1, prod2, prod3, prod4, prod5];
+const lista = [prod1];
 
 const $fragment = document.createDocumentFragment(),
   $cards = document.querySelector(".cards");
@@ -52,3 +36,4 @@ lista.forEach((el) => {
   $fragment.appendChild($divItem);
 });
 $cards.appendChild($fragment);
+ */

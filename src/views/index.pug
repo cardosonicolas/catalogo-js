@@ -10,7 +10,7 @@ html(lang='es')
     // HEADER
     header.header
       a(href='')
-        img.logo(src='img/logo.jpg', alt=' Logo')
+        img.logo(src="", alt=' Logo')
       nav.menu
         ul.menu-items
           li
@@ -23,10 +23,19 @@ html(lang='es')
     main
       section.hero-image
         div
-          h1 Listo el Postre
+          h1 Aqui va un Titulo
       // CATALOGO
       h2#page-1 Catálogo
       section.flex-container.cards
+        each prod in prods
+          a(href=`/prod/${prod.id}`)
+            .flex-item
+              .card.flex-column
+                div.card-img.flex-column(style = `background-image: url("http://placeimg.com/1366/720/any");`)
+                  p.card-precio="$"+prod.price
+                .card-body
+                  h3.card-prod=prod.title
+
       // FIN CATALOGO
 
 
@@ -35,4 +44,4 @@ html(lang='es')
 
       
     include partials/footer.pug
-      script(src='js/javascript.js')
+      //script(src='js/javascript.js')

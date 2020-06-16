@@ -1,0 +1,25 @@
+doctype html
+html(lang='es')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin='anonymous')
+    link(rel="stylesheet", href="/css/normalize.css")
+    link(rel="stylesheet", href="/css/card.css")
+    link(rel="stylesheet", href="/css/index.css")
+    title ProyectoL
+  body
+   
+
+    section.container
+      div.prodHead
+        img(src="/img/header.jpg", alt="", id="image")
+      div.prodBody
+        h2.prodTitle.padding-05=prod.title
+        h3.prodPrice="$"+prod.price
+        p.prodDescrip.padding-05="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum illum assumenda quas rerum! Quibusdam repellat assumenda rerum architecto sequi nobis ab iste beatae, veniam exercitationem facilis voluptatibus tempore, provident ut"
+  
+    include partials/footer.pug
+
+
+
