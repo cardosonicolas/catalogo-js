@@ -37,3 +37,19 @@ lista.forEach((el) => {
 });
 $cards.appendChild($fragment);
  */
+
+const $fImg = document.getElementById("image"),
+  $imgPriview = document.querySelector(".imgPriview");
+
+$fImg.addEventListener("change", function () {
+  const file = this.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+
+    reader.addEventListener("load", function () {
+      $imgPriview.setAttribute("src", this.result);
+    });
+    reader.readAsDataURL(file);
+  }
+});
