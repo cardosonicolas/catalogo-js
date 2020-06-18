@@ -13,11 +13,11 @@ html(lang='es')
 
     section.container
       div.prodHead
-        img(src="/img/header.jpg", alt="", id="image")
+        img(src=`${prod.imageUrl}`, alt="", id="image")
       div.prodBody
         h2.prodTitle.padding-05=prod.title
         h3.prodPrice="$"+prod.price
-        p.prodDescrip.padding-05="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum illum assumenda quas rerum! Quibusdam repellat assumenda rerum architecto sequi nobis ab iste beatae, veniam exercitationem facilis voluptatibus tempore, provident ut"
+        p.prodDescrip.padding-05=prod.description
   
     include partials/footer.pug
 

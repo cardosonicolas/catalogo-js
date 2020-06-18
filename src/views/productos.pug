@@ -1,0 +1,48 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel="stylesheet", href="/css/edit.css")
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous")
+    
+    title Document
+  body
+
+    .container.d-flex.text-center
+      .row
+        //FORM
+        .col-md-5
+          .card
+            .card-body
+              form(action="/prod/add", method="POST", enctype="multipart/form-data")
+                .form-group
+                  input(type="text", name="title", placeholder="Inserte un titulo", class="form-control is-valid",required)
+                .form-group
+                  input(type="text", name="price", placeholder="Inserte un precio", class="form-control  is-valid", required)
+                .form-group
+                  textarea(name="description", cols="80", class="form-control is-valid", placeholder="Inserte descripcion", required)
+                .form-group
+                  input(type="file", class="form-control-file is-valid", name="image", id="image", required)
+                  br
+                  img(src="http://placehold.it/250" class="rounded imgPriview" alt="")
+                button(type="submit", class="btn btn-primary btn-block") Agregar
+        //LIST
+        .col-md-7
+          table.table.table-bordered.table-hover.text-center
+            thead
+              tr
+                th ID
+                th Tile
+                th Price
+                th Operacion
+            tbody
+              each prod in prods
+                tr
+                  td #{prod.id}
+                  td #{prod.title}
+                  td #{prod.price}
+                  td.d-flex.justify-content-center
+                    a(href=`/edit/${prod.id}`, class="btn btn-info mr-4") Edit
+                    a(href=`/delete/${prod.id}`, class="btn btn-danger mr-4", method="delete") Delete
+    script(src='/js/javascript.js')

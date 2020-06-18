@@ -9,10 +9,14 @@ Product.init(
       type: DataTypes.STRING(30),
     },
     price: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL(),
     },
-    img: {
-      type: DataTypes.BLOB,
+    description: {
+      type: DataTypes.STRING,
+    },
+    imageUrl: {
+      type: DataTypes.STRING(),
+      defaultValue: "http://placehold.it/250",
     },
   },
   {

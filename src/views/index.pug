@@ -31,7 +31,7 @@ html(lang='es')
           a(href=`/prod/${prod.id}`)
             .flex-item
               .card.flex-column
-                div.card-img.flex-column(style = `background-image: url("http://placeimg.com/1366/720/any");`)
+                div.card-img.flex-column(style = `background-image: url(${prod.imageUrl});`)
                   p.card-precio="$"+prod.price
                 .card-body
                   h3.card-prod=prod.title

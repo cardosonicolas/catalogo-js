@@ -26,7 +26,7 @@ app.listen(app.get("port"), () => {
   sequelize
     .sync({ force: false })
     .then(() => {
-      console.log("Connection has been established successfully.");
+      console.log("Conexión a DB establecida");
     })
     .catch((err) => {
       console.error("Unable to connect to the database:", err);

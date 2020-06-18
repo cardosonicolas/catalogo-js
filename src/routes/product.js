@@ -1,16 +1,26 @@
 const express = require("express");
 const router = express.Router();
-const upload = require("../libs/storage");
+const cloudinary = require("../libs/cloudinary");
 const Product = require("../database/models/Product");
+const upload = require("../libs/storage");
 
 router.get("/prod/add", (req, res) => {
   Product.findAll().then((prods) => {
-    res.render("edit", { prods });
+    res.render("productos", { prods });
   });
 });
 
 router.post("/prod/add", upload, async (req, res) => {
-  await Product.create(req.body);
+  const result = await cloudinary.v2.uploader.upload(req.file.path, {
+    folder: "catalogo_js",
+  });
+  console.log(result);
+  await Product.create({
+    title: req.body.title,
+    price: req.body.price,
+    description: req.body.description,
+    imageUrl: result.secure_url,
+  });
   res.redirect("/prod/add");
 });
 
@@ -20,63 +30,39 @@ router.get("/prod/:id", (req, res) => {
   });
 });
 
+router.get("/edit/:id", (req, res) => {
+  Product.findByPk(req.params.id).then((prod) => {
+    res.render("edit", { prod });
+  });
+});
+
 //UPDATE
-router.get("/update/:id", (req, res) => {
-  Task.update(
+router.post("/update/:id", (req, res) => {
+  Product.update(
     {
       title: req.body.title,
       price: req.body.price,
+      description: req.body.description,
     },
     {
       where: {
         id: req.params.id,
       },
     }
-  ).then((result) => {
-    res.json(result);
-  });
+  );
+  res.redirect("/prod/add");
 });
 
+//DELETE
 router.get("/delete/:id", async (req, res) => {
   await Product.destroy({
     where: {
       id: req.params.id,
     },
   }).then((result) => {
-    res.render("edit", { result });
+    res.render("productos", { result });
   });
   res.redirect("/prod/add");
 });
-
-/*
-//UPDATE
-router.patch("/update/:id", (req, res) => {
-  Task.update(
-    {
-      title: req.body.title,
-      price: req.body.price,
-    },
-    {
-      where: {
-        id: req.params.id,
-      },
-    }
-  ).then((result) => {
-    res.json(result);
-  });
-});
-
-//DELETE
-router.delete("/delete/:id", (req, res) => {
-  Task.destroy({
-    where: {
-      id: req.params.id,
-    },
-  }).then((result) => {
-    res.json(result);
-    res.render("edit", { result });
-  });
-  res.redirect("/add");
-});*/
 
 module.exports = router;
