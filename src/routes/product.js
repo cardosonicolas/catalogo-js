@@ -20,6 +20,7 @@ router.post("/prod/add", upload, async (req, res) => {
     price: req.body.price,
     description: req.body.description,
     imageUrl: result.secure_url,
+    publicId: result.public_id,
   });
   res.redirect("/prod/add");
 });
@@ -37,12 +38,17 @@ router.get("/edit/:id", (req, res) => {
 });
 
 //UPDATE
-router.post("/update/:id", (req, res) => {
+router.post("/update/:id", upload, async (req, res) => {
+  const result = await cloudinary.v2.uploader.upload(req.file.path, {
+    folder: "catalogo_js",
+  });
   Product.update(
     {
       title: req.body.title,
       price: req.body.price,
       description: req.body.description,
+      imageUrl: result.secure_url,
+      publicId: result.public_id,
     },
     {
       where: {
@@ -54,15 +60,22 @@ router.post("/update/:id", (req, res) => {
 });
 
 //DELETE
-router.get("/delete/:id", async (req, res) => {
-  await Product.destroy({
+router.get("/delete/:id", (req, res) => {
+  Product.findByPk(req.params.id)
+    .then((prod) => {
+      cloudinary.v2.uploader.destroy(prod.publicId), prod.destroy();
+    })
+    .then((result) => {
+      res.render("productos", { result });
+      res.redirect("/prod/add");
+    });
+  /* await Product.destroy({
     where: {
       id: req.params.id,
     },
   }).then((result) => {
     res.render("productos", { result });
-  });
-  res.redirect("/prod/add");
+  }); */
 });
 
 module.exports = router;

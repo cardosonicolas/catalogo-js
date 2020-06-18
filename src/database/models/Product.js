@@ -18,6 +18,9 @@ Product.init(
       type: DataTypes.STRING(),
       defaultValue: "http://placehold.it/250",
     },
+    publicId: {
+      type: DataTypes.STRING(),
+    },
   },
   {
     sequelize,

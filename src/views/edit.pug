@@ -15,15 +15,15 @@ html(lang='en')
         .col-md-12
           .card
             .card-body
-              form(action=`/update/${prod.id}`, method="POST")
+              form(action=`/update/${prod.id}`, method="POST", enctype="multipart/form-data")
                 .form-group
                   input(type="text", name="title", placeholder="Inserte un titulo", class="form-control is-valid",required, value=`${prod.title}`)
                 .form-group
                   input(type="text", name="price", placeholder="Inserte un precio", class="form-control  is-valid", required, value=`${prod.price}`)
                 .form-group
-                  textarea(name="description", cols="80", class="form-control is-valid", placeholder="Inserte descripcion", required, value=`${prod.descripcion}`)
+                  textarea(name="description", cols="80", class="form-control is-valid", placeholder="Inserte descripcion", required, value=`${prod.description}`)
                 .form-group
-                  input(type="file", class="form-control-file is-valid", id="image", required)
+                  input(type="file", class="form-control-file is-valid", id="image", name="image", required)
                   br
                   img(src=`${prod.imageUrl}` class="rounded imgPriview" alt="")
                 button(type="submit", class="btn btn-primary btn-block") Guardar
