@@ -3,10 +3,10 @@ const path = require("path");
 
 //Le decimos donde almacenar las imagenes
 const storage = multer.diskStorage({
-  destination: path.join(__dirname, "../public/img"),
+  /* destination: path.join(__dirname, "../public/img"),
   filename: function (req, file, cb) {
     cb(null, file.originalname);
-  },
+  }, */
 });
 
 //Le decimos como almacenar las imagenes
@@ -15,7 +15,7 @@ const upload = multer({
   dest: path.join(__dirname, "../public/img"),
   limits: { fileSize: 5000000 },
   fileFilter: (req, file, cb) => {
-    const filetypes = /jpge|jpg|png/;
+    const filetypes = /jpeg|jpg|png/;
     const minetype = filetypes.test(file.mimetype);
     const extname = filetypes.test(path.extname(file.originalname));
     if (minetype && extname) {

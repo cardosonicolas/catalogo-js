@@ -7,5 +7,8 @@ router.get("/", (req, res) => {
     res.render("index", { prods });
   });
 });
+router.get("/prod", (req, res) => {
+  res.redirect("/");
+});
 
 module.exports = router;

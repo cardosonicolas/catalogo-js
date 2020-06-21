@@ -6,6 +6,7 @@ const sequelize = require("./database/db");
 // importing router
 const indexRoutes = require("./routes/index");
 const prodRoutes = require("./routes/product");
+const userRouter = require("./routes/user");
 
 // settings
 app.set("port", process.env.PORT || 3000);
@@ -20,6 +21,7 @@ app.use(express.json());
 // routes
 app.use("/", indexRoutes);
 app.use("/", prodRoutes);
+app.use("/", userRouter);
 
 // starting the server
 app.listen(app.get("port"), () => {

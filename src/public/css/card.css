@@ -28,6 +28,8 @@ body {
 }
 
 .container {
+  margin-top: 1em;
+  overflow: hidden;
   padding: 0.5em;
   background-color: #fff;
 }
