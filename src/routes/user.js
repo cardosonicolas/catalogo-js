@@ -4,12 +4,12 @@ const user = require("../controllers/UserController");
 
 router.get("/register", user.renderRegister);
 
-router.post("/register", async (req, res) => {
-  if ((await User.findAll()).length < 1) {
-    await User.create(req.body);
-  } else {
-    console.log("Tomatela");
-  }
-});
+router.post("/register", user.register);
 
 module.exports = router;
+
+/* if ((await User.findAll()).length < 1) {
+  await User.create(req.body);
+} else {
+  console.log("Tomatela");
+} */
