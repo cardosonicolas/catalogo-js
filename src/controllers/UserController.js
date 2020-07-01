@@ -39,7 +39,8 @@ userCtrl.renderLogin = (req, res) => {
 userCtrl.login = passport.authenticate("local", {
   successRedirect: "/add",
   failureRedirect: "/login",
-  failureFlash: true
+  failureFlash: true,
+  session: false
 });
 
 userCtrl.logout = (req, res) => {
