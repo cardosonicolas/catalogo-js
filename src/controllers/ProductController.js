@@ -20,6 +20,7 @@ productCtrl.createProd = async (req, res) => {
       imageUrl: result.secure_url,
       publicId: result.public_id,
     });
+    req.flash("success_msg", "Producto agregado");
     res.redirect("/add");
   }
 };
@@ -59,6 +60,7 @@ productCtrl.updateProd = async (req, res) => {
       }
     );
   }
+  req.flash("success_msg", "Producto actualizado");
   res.redirect("/add");
 };
 
@@ -69,6 +71,7 @@ productCtrl.deleteProd = async (req, res) => {
     })
     .then((result) => {
       res.render("productos", { result });
+      req.flash("success_msg", "Producto Eliminado");
       res.redirect("/add");
     });
 };

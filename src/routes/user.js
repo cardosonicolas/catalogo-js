@@ -6,10 +6,10 @@ router.get("/register", user.renderRegister);
 
 router.post("/register", user.register);
 
-module.exports = router;
+router.get("/login", user.renderLogin);
 
-/* if ((await User.findAll()).length < 1) {
-  await User.create(req.body);
-} else {
-  console.log("Tomatela");
-} */
+router.post("/login", user.login);
+
+router.get("/logout", user.logout);
+
+module.exports = router;
