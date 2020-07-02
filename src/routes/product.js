@@ -15,4 +15,12 @@ router.post("/update/:id", upload, product.updateProd);
 
 router.get("/delete/:id", product.deleteProd);
 
+/* function isAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  req.flash("error_msg", "Not Authorized.");
+  res.redirect("/");
+}
+ */
 module.exports = router;

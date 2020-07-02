@@ -9,12 +9,11 @@ userCtrl.renderRegister = (req, res) => {
 
 userCtrl.register = async (req, res) => {
   const { name, email, password, confirm_password } = req.body;
-
   if ((await User.findAll()).length < 1) {
     if (password != confirm_password) {
       req.flash("error_msg", "Las password no coinciden.");
     } else {
-      const userEmail = User.findOne({ email: email });
+      const userEmail = User.findOne({where: { email: email }});
       if (!userEmail) {
         req.flash("error_msg", "El email ya esta en uso.");
       } else {
@@ -40,7 +39,6 @@ userCtrl.login = passport.authenticate("local", {
   successRedirect: "/add",
   failureRedirect: "/login",
   failureFlash: true,
-  session: false
 });
 
 userCtrl.logout = (req, res) => {

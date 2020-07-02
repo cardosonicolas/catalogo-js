@@ -11,7 +11,7 @@ passport.use(
     },
     async (email, password, done) => {
       //Confirmo si existe el correo del usuario
-      const user = await User.findOne({ email: email });
+      const user = await User.findOne({ where: { email: email } });
       if (!user) {
         return done(null, false, { message: "Usuario no encontrado" });
       } else {
@@ -27,12 +27,11 @@ passport.use(
 );
 
 //Recibo la id del usuario y un done
-passport.serializeUser(function (user, done) {
+passport.serializeUser((user, done) => {
   done(null, user.id);
 });
 
-passport.deserializeUser(function (id, done) {
-  User.findByPk(id, function (err, user) {
-    done(err, user);
-  });
+passport.deserializeUser(async (id, done) => {
+  const user = await User.findByPk(id);
+  done(null, user);
 });

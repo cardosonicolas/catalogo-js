@@ -9,20 +9,22 @@ productCtrl.renderAllprod = async (req, res) => {
 };
 
 productCtrl.createProd = async (req, res) => {
+  let img = {};
   if (req.file != null) {
-    const result = await cloudinary.v2.uploader.upload(req.file.path, {
+    img = await cloudinary.v2.uploader.upload(req.file.path, {
       folder: "catalogo_js",
     });
-    await Product.create({
-      title: req.body.title,
-      price: req.body.price,
-      description: req.body.description,
-      imageUrl: result.secure_url,
-      publicId: result.public_id,
-    });
-    req.flash("success_msg", "Producto agregado");
-    res.redirect("/add");
   }
+  await Product.create({
+    title: req.body.title,
+    price: req.body.price,
+    description: req.body.description,
+    imageUrl: img.secure_url,
+    publicId: img.public_id,
+    userId: 1,
+  });
+  req.flash("success_msg", "Producto agregado");
+  res.redirect("/add");
 };
 
 productCtrl.findByPK = async (req, res) => {

@@ -5,7 +5,10 @@ const sequelize = require("./database/db");
 const session = require("express-session");
 const flash = require("connect-flash");
 const passport = require("passport");
+const bodyParser = require("body-parser");
 
+/* ctrl + p = archivos
+ctlr + shift + f = codigo */
 require("./config/passport");
 
 // importing router
