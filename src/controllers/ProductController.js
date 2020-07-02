@@ -2,9 +2,13 @@ const productCtrl = {};
 const Product = require("../database/models/Product");
 const cloudinary = require("../libs/cloudinary");
 
-productCtrl.renderAllprod = async (req, res) => {
+productCtrl.renderAllprod = (req, res) => {
   Product.findAll().then((prods) => {
-    res.render("productos", { prods });
+    if (req.path === "/add") {
+      res.render("productos", { prods });
+    } else {
+      res.render("index", { prods });
+    }
   });
 };
 
@@ -27,15 +31,13 @@ productCtrl.createProd = async (req, res) => {
   res.redirect("/add");
 };
 
-productCtrl.findByPK = async (req, res) => {
+productCtrl.findByPK = (req, res) => {
   Product.findByPk(req.params.id).then((prod) => {
-    res.render("card", { prod });
-  });
-};
-
-productCtrl.findByPK2 = async (req, res) => {
-  Product.findByPk(req.params.id).then((prod) => {
-    res.render("edit", { prod });
+    if (req.path === `/prod/${req.params.id}`) {
+      res.render("card", { prod });
+    } else {
+      res.render("edit", { prod });
+    }
   });
 };
 
@@ -66,8 +68,8 @@ productCtrl.updateProd = async (req, res) => {
   res.redirect("/add");
 };
 
-productCtrl.deleteProd = async (req, res) => {
-  await Product.findByPk(req.params.id)
+productCtrl.deleteProd = (req, res) => {
+  Product.findByPk(req.params.id)
     .then(async (prod) => {
       await cloudinary.v2.uploader.destroy(prod.publicId), prod.destroy();
     })

@@ -12,7 +12,6 @@ ctlr + shift + f = codigo */
 require("./config/passport");
 
 // importing router
-const indexRoutes = require("./routes/index");
 const prodRoutes = require("./routes/product");
 const userRouter = require("./routes/user");
 
@@ -47,7 +46,6 @@ app.use((req, res, next) => {
 });
 
 // routes
-app.use("/", indexRoutes);
 app.use("/", prodRoutes);
 app.use("/", userRouter);
 
