@@ -71,10 +71,16 @@ productCtrl.updateProd = async (req, res) => {
 productCtrl.deleteProd = (req, res) => {
   Product.findByPk(req.params.id)
     .then(async (prod) => {
-      await cloudinary.v2.uploader.destroy(prod.publicId), prod.destroy();
+      console.log(prod.publicId);
+      if (prod.publicId != null) {
+        await cloudinary.v2.uploader.destroy(prod.publicId);
+        prod.destroy();
+      } else {
+        prod.destroy();
+      }
     })
-    .then((result) => {
-      res.render("productos", { result });
+    .then((prod) => {
+      res.render("productos", { prod });
       req.flash("success_msg", "Producto Eliminado");
       res.redirect("/add");
     });
