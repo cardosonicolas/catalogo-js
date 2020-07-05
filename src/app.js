@@ -18,7 +18,6 @@ const userRouter = require("./routes/user");
 // settings
 app.set("port", process.env.PORT || 3000);
 app.set("views", path.join(__dirname, "views"));
-app.engine("pug", require("pug").__express);
 app.set("view engine", "pug");
 
 // middlewares
@@ -52,7 +51,7 @@ app.use("/", userRouter);
 // starting the server
 app.listen(app.get("port"), () => {
   sequelize
-    .sync({ force: false })
+    .sync({ force: true })
     .then(() => {
       console.log("Conexión a DB establecida");
     })

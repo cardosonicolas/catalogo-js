@@ -5,26 +5,10 @@ html(lang='es')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet', href='css/index.css')
     link(rel="stylesheet", href="css/navbar.css")
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin='anonymous')
     title ProyectoL
   body
-    // HEADER
     include partials/navbar.pug
-    // FIN HEADER
-    main
-      section.hero-image
-        div
-          h1 Aqui va un Titulo
-      // CATALOGO
-      h2#page-1 Catálogo
-      section.flex-container.cards
-        each prod in prods
-          a(href=`/prod/${prod.id}`)
-            .flex-item
-              .card.flex-column
-                div.card-img.flex-column(style = `background-image: url(${prod.imageUrl});`)
-                  p.card-precio="$"+prod.price
-                .card-body
-                  h3.card-prod=prod.title
-      // FIN CATALOGO
+    include main.pug
     include partials/footer.pug
       //script(src='js/javascript.js')

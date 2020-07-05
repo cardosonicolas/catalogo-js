@@ -1,6 +1,6 @@
 module.exports = {
   database: {
-    database: "test",
+    database: "sequelize",
     username: "",
     password: "",
   },

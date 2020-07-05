@@ -1,3 +1,6 @@
+:root {
+}
+
 .header {
   width: 100%;
   display: flex;
@@ -43,8 +46,6 @@
   }
 
   .menu-item:hover {
-    min-height: inherit;
-    color: #3498db;
-    background-color: rgb(240, 240, 240);
+    color: coral;
   }
 }

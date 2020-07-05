@@ -1,6 +1,5 @@
 const userCtrl = {};
 const User = require("../database/models/User");
-const bcrypt = require("bcryptjs");
 const passport = require("passport");
 
 userCtrl.renderRegister = (req, res) => {
@@ -9,19 +8,18 @@ userCtrl.renderRegister = (req, res) => {
 
 userCtrl.register = async (req, res) => {
   const { name, email, password, confirm_password } = req.body;
-  if ((await User.findAll()).length < 1) {
+  if ((await User.findAll()).length < 10) {
     if (password != confirm_password) {
       req.flash("error_msg", "Las password no coinciden.");
     } else {
-      const userEmail = User.findOne({where: { email: email }});
+      const userEmail = User.findOne({ where: { email: email } });
       if (!userEmail) {
         req.flash("error_msg", "El email ya esta en uso.");
       } else {
-        const salt = await bcrypt.genSalt(10);
         await User.create({
           name: name,
           email: email,
-          password: await bcrypt.hash(password, salt),
+          password: password,
         });
         res.redirect("/login");
       }

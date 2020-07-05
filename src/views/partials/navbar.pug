@@ -1,6 +1,6 @@
 header.header
-      a(href='')
-        img.logo(src="", alt=' Logo')
+      a(href='/')
+        img.logo(src="../img/logo.jpg", alt=' Logo')
       nav.menu
         ul.menu-items
           li
@@ -9,3 +9,6 @@ header.header
             a.menu-item(href='#page-1') Catálogo
           li
             a.menu-item(href='#page-2') Contacto
+          if(user)
+            li
+              a.menu-item(href='/logout') Logout

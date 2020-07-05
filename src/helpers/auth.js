@@ -8,4 +8,12 @@ helpers.isAuthenticated = (req, res, next) => {
   res.redirect("/login");
 };
 
+helpers.redirectIfLoggedIn = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    req.flash("error_msg", `Ya estas logeado ${req.user.name}`);
+    res.redirect("/add");
+  }
+  next();
+};
+
 module.exports = helpers;

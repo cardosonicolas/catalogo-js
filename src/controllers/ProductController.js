@@ -25,7 +25,7 @@ productCtrl.createProd = async (req, res) => {
     description: req.body.description,
     imageUrl: img.secure_url,
     publicId: img.public_id,
-    userId: 1,
+    userId: req.user.id,
   });
   req.flash("success_msg", "Producto agregado");
   res.redirect("/add");

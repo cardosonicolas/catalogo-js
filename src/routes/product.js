@@ -14,8 +14,8 @@ router.get("/prod/:id", product.findByPK);
 
 router.get("/edit/:id", isAuthenticated, product.findByPK);
 
-router.post("/update/:id", upload, product.updateProd);
+router.post("/update/:id", isAuthenticated, upload, product.updateProd);
 
-router.get("/delete/:id", product.deleteProd);
+router.get("/delete/:id", isAuthenticated, product.deleteProd);
 
 module.exports = router;
