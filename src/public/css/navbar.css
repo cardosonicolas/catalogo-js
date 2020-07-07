@@ -1,51 +1,40 @@
 :root {
-}
-
-.header {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  text-align: center;
+  --white: hsl(0, 0%, 100%);
+  --pink-50: hsl(354, 71%, 50%);
+  --pink-80: hsl(354, 71%, 70%);
 }
 
 .logo {
   width: 50px;
-  margin: 0.5em;
 }
 
-.menu-items {
-  padding: 0.5em;
+.menu {
+  background-color: var(--white);
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+}
+
+.menu a:first-child {
+  display: flex;
 }
 
 .menu-item {
-  color: #3498db;
+  color: var(--pink-50);
+  padding-right: 1em;
 }
 
 @media (min-width: 992px) {
-  .header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-    top: 0;
-    position: fixed;
-    z-index: 1;
+  .menu {
+    justify-content: flex-end;
   }
 
-  .menu-items {
-    display: flex;
-  }
-
-  .menu-item {
-    padding: 1rem;
+  .menu a:first-child {
+    margin-left: 0.5em;
+    margin-right: auto;
   }
 
   .menu-item:hover {
-    color: coral;
+    color: var(--pink-80);
   }
 }

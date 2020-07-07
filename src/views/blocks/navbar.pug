@@ -1,0 +1,12 @@
+nav.menu
+  a(href='/')
+      img.logo(src="../img/logo.jpg", alt=' Logo')
+  each page in pages
+    if page === "Home"
+      a.menu-item(href="/") #{page}
+    else
+      a.menu-item(href=page+".pug") #{page}
+      //a.menu-item(href="#"+page) #{page}
+    if user
+      li
+        a.menu-item(href='/logout') Logout

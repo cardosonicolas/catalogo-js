@@ -51,7 +51,7 @@ app.use("/", userRouter);
 // starting the server
 app.listen(app.get("port"), () => {
   sequelize
-    .sync({ force: true })
+    .sync({ force: false })
     .then(() => {
       console.log("Conexión a DB establecida");
     })

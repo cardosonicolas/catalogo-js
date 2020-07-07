@@ -1,0 +1,37 @@
+footer.footer.flex-container-footer
+  .flex-item
+    div
+      br
+      h4 MAPA WEB
+      each page in pages
+        ul
+          li
+            if page === "Home"
+              a.footer-enlaces(href="/") #{page}
+            else
+              a.footer-enlaces(href=page+".pug") #{page}
+  .flex-item
+    div
+      br
+      h4 INFORMACIÓN
+      ul
+        li
+          a.footer-enlaces(href='') Aviso legal
+        li
+          a.footer-enlaces(href='') Política de privacidad
+        li
+          a.footer-enlaces(href='') Política de cookies
+  .flex-item
+    div
+      br
+      h4#page-2 SÍGUENOS
+      ul.redes
+        li
+          a.footer-enlaces(href=facebook, target='blank')
+            i.fab.fa-facebook
+        li
+          a.footer-enlaces(href=instagram, target='blank')
+            i.fab.fa-instagram
+      p #{location}
+
+
