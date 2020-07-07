@@ -1,0 +1,25 @@
+doctype html
+html(lang='es')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin='anonymous')
+    link(rel="stylesheet", href="/css/normalize.css")
+    link(rel="stylesheet", href="/css/card.css")
+    link(rel="stylesheet", href="/css/index.css")
+    link(rel="stylesheet", href="/css/navbar.css")
+    title ProyectoL
+  body
+
+    include partials/navbar.pug
+    section.container
+      div.prodHead
+        img(src=`${prod.imageUrl}`, alt="", id="image")
+      div.prodBody
+        h2.prodTitle.padding-05=prod.title
+        h3.prodPrice="$"+prod.price
+        p.prodDescrip.padding-05=prod.description
+    include partials/footer.pug
+
+
+

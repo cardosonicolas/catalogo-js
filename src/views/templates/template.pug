@@ -4,15 +4,20 @@ html
     include ../config/config
   head
     meta(charset='UTF-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
     block head
+      meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        
       each link in css
-        link(rel="stylesheet", href="css/"+link)
-        link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin='anonymous')
-      title= page_title + " | " + title
+        link(rel="stylesheet", href="/css/"+link)
+      link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin='anonymous')
+      link(rel="shortcut icon", href="" type="image/jpg")
+
+      title= actual_page + " | " + title
+
   body
-    block header
+    block navbar
       include ../blocks/navbar.pug
+    block header
       include ../blocks/header.pug
     block main
       include ../blocks/main.pug

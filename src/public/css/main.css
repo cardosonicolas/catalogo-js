@@ -1,0 +1,65 @@
+:root {
+  --white: hsl(0, 0%, 100%);
+  --pink-50: hsl(354, 71%, 50%);
+  --pink-80: hsl(354, 71%, 70%);
+}
+
+.content {
+  padding: 1em;
+  min-height: 100vh;
+}
+
+.card {
+  height: 350px;
+  width: 300px;
+  margin: 1em;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.25s;
+}
+
+.card-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--white);
+  width: 100%;
+  height: 50%;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.card-precio {
+  margin: 5px;
+  padding: 0.5em;
+  max-width: max-content;
+  background-color: var(--pink-50);
+  border-radius: 5px;
+  color: var(--white);
+  font-size: 20px;
+}
+
+.card-body {
+  height: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  align-content: center;
+  justify-content: space-evenly;
+}
+
+.card-prod {
+  font-size: 25px;
+  color: var(--pink-50);
+}
+
+@media (min-width: 992px) {
+  .card {
+    height: 350px;
+    width: 375px;
+  }
+
+  .card:hover {
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-15px);
+  }
+}

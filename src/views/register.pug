@@ -1,34 +1,29 @@
-doctype html
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous")
-
-    title Register
-  body
-      include messagge.pug
-      .container-fluid
-        .row
-          .col-md-4.mx-auto
-            .card.text-danger.mt-4.text-center
-              .card-header.bg-danger
-                h1.text-white.h4 Register
-              .card-body
-                form(action="/register", method="post", class="body")
-                  .form-group
-                    label(for="name") Your User
-                    input(type="text", name="name", placeholder= "Enter your user", class="form-control", required)
-                  .form-group
-                    label(for="email") Your E-mail
-                    input(type="email", name="email", placeholder= "Enter your E-mail", class="form-control", required)
-                  .form-group
-                    label(for="password") Your Password
-                    input(type="password", name="password", placeholder= "Enter your password", class="form-control", required)
-                  .form-group
-                    label(for="confirmPassword") Confirm Password
-                    input(type="password", name="confirm_password", placeholder= "Confirm your password", class="form-control", required)
-                  button(type="submit", class="btn btn-block btn-danger") Registrar
+extends templates/template 
+block append config
+ - actual_page = "Registrate";
+block header
+block main
+  .container-fluid
+    .row
+      .col-md-4.mx-auto
+        .card.text-danger.mt-4.text-center
+          .card-header.bg-danger
+            h1.text-white.h4 Register
+          .card-body
+            form(action="/register", method="post", class="body")
+              .form-group
+                label(for="name") Your User
+                input(type="text", name="name", placeholder= "Enter your user", class="form-control", required)
+              .form-group
+                label(for="email") Your E-mail
+                input(type="email", name="email", placeholder= "Enter your E-mail", class="form-control", required)
+              .form-group
+                label(for="password") Your Password
+                input(type="password", name="password", placeholder= "Enter your password", class="form-control", required)
+              .form-group
+                label(for="confirmPassword") Confirm Password
+                input(type="password", name="confirm_password", placeholder= "Confirm your password", class="form-control", required)
+              button(type="submit", class="btn btn-block btn-danger") Registrar
 
 
                 

@@ -17,25 +17,6 @@
   display: flex;
   font-size: 30px;
 }
-/* 
-#page-1 {
-  color: var(--pink-50);
-  font-family: "Raleway", sans-serif;
-  font-size: 40px;
-  text-align: center;
-  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
-} */
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
-.flex-container {
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-}
 
 .flex-container-footer {
   width: 100%;
@@ -45,26 +26,11 @@
   padding-bottom: 1em;
 }
 
-.flex-item {
-  flex: 0 0 100%;
-}
-
 @media (min-width: 576px) {
-  .flex-container {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-  }
-
   .flex-container-footer {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-  }
-
-  .flex-item {
-    max-width: max-content;
-    flex: 0 0 50%;
   }
 }
 
