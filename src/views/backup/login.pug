@@ -1,0 +1,15 @@
+  .row
+    .col-md-4.mx-auto
+      .card.text-danger.mt-4.text-center
+        .card-header.bg-danger
+          h1.text-white.h4 Iniciar sesión
+        .card-body
+          form(action="/login", method="post", class="body")
+            .form-group
+              label(for="email") Tu email
+              input(type="email", name="email", placeholder= "Ingresa tu email", class="form-control", required)
+            .form-group
+              label(for="password") Tu contraseña
+              input(type="password", name="password", placeholder= "Ingresa tu contraseña", class="form-control", required)
+            .form-group
+            button(type="submit", class="btn btn-block btn-danger mt-5 p-3") Iniciar
