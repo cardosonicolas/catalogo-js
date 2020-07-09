@@ -3,15 +3,16 @@ block append config
   - actual_page = "Iniciar sesión";
 block header
 block main
-  div.logContainer.flex-container
+  div.flex-container.logBorderRadius
     div.log
       div.logHead
         h1 Iniciar sesion
-      div.logBody
-        form(action="/login", method="post", class="")
-          div
-            input(type="email", name="email", placeholder= "Ingresa tu email", required)
-          div
-            input(type="password", name="password", placeholder= "Ingresa tu password", required)
-          div
-            button(type="submit", class="btnLog") Iniciar
+      form(action="/login", method="post", class="logBody")
+        div
+          input(type="email", name="email", placeholder= "Ingresa tu email", class="logInput" required)
+          input(type="password", name="password", placeholder= "Ingresa tu password",class="logInput", required)
+        div
+          button(type="submit", class="btnLog") Iniciar
+      div.logForgot
+        p Forgot 
+          a(href="") Password?

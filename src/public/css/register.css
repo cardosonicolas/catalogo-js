@@ -8,12 +8,12 @@
   --pink-90: hsl(354, 71%, 90%);
 }
 
-.logBorderRadius {
+.resgBorderRadius {
   border-radius: 10px;
 }
 
-.log {
-  height: 400px;
+.resg {
+  height: 500px;
   width: 500px;
   border-radius: 10px;
   border: 1px solid hsla(0, 0%, 0%, 0.3);
@@ -21,20 +21,20 @@
   text-align: center;
 }
 
-.logHead {
+.resgHead {
   color: var(--white);
   background-color: var(--pink-50);
   border-radius: 10px 10px 0 0;
 }
 
-.logBody {
-  height: 75%;
+.resgBody {
+  height: 90%;
   display: flex;
   flex-flow: column;
   justify-content: space-evenly;
 }
 
-.logInput {
+.resgInput {
   height: 50px;
   width: 90%;
   margin-top: 1em;
@@ -44,15 +44,15 @@
   border: 1px solid var(--pink-90);
 }
 
-.logInput:focus {
+.resgInput:focus {
   box-shadow: 0 0 5px var(--pink-50);
   border: 1px solid var(--pink-50);
 }
-.logInput::placeholder {
+.resgInput::placeholder {
   color: black;
 }
 
-.btnLog {
+.btnResg {
   height: 50px;
   width: 90%;
   background-color: var(--pink-50);
@@ -63,18 +63,18 @@
   font-size: 20px;
 }
 
-.btnLog:hover {
+.btnResg:hover {
   background-color: var(--pink-40);
 }
 
-.logForgot {
+.resgForgot {
   font-size: 15px;
   color: var(--pink-80);
 }
 
-.logForgot a {
+.resgForgot a {
   color: var(--pink-50);
 }
-.logForgot a:hover {
+.resgForgot a:hover {
   text-decoration: underline;
 }
