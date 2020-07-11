@@ -1,0 +1,115 @@
+:root {
+  --white: hsl(0, 0%, 100%);
+  --pink-40: hsl(354, 71%, 40%);
+  --pink-50: hsl(354, 71%, 50%);
+  --pink-60: hsl(354, 71%, 60%);
+  --pink-70: hsl(354, 71%, 70%);
+  --pink-80: hsl(354, 71%, 80%);
+  --pink-90: hsl(354, 71%, 90%);
+
+  --color-bg-btn: #0062cc;
+  --color-bg-btn-hover: #0062aa;
+  --color-shadow-btn-active: rgba(0, 0, 0, 0.3);
+  --color-border-field: rgb(200, 200, 200);
+}
+
+.editContainer {
+  height: 100%;
+  width: 50%;
+  text-align: center;
+}
+
+.editInput {
+  height: 30px;
+  width: 50%;
+  margin-top: 1em;
+  padding: 0 25px 0 25px;
+  font-size: 20px;
+  outline: none;
+  border: 1px solid var(--pink-90);
+}
+
+.editTextarea {
+  height: 80px;
+  width: 50%;
+  margin-top: 1em;
+  padding: 0 25px 0 25px;
+  font-size: 20px;
+  outline: none;
+  border: 1px solid var(--pink-90);
+}
+
+.editTextarea:focus {
+  box-shadow: 0 0 5px var(--pink-50);
+  border: 1px solid var(--pink-50);
+}
+.editTextarea::placeholder {
+  color: black;
+}
+
+.editInput:focus {
+  box-shadow: 0 0 5px var(--pink-50);
+  border: 1px solid var(--pink-50);
+}
+.editInput::placeholder {
+  color: black;
+}
+
+[type="file"] {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  white-space: nowrap;
+  width: 1px;
+}
+[type="file"] + label {
+  background-color: var(--pink-50);
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 2rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  margin: 0.5em;
+  transition: background-color 0.3s;
+}
+
+[type="file"]:focus + label,
+[type="file"] + label:hover {
+  background-color: var(--pink-40);
+}
+
+[type="file"]:focus + label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+[type="file"] + label * {
+  pointer-events: none;
+}
+
+.editBtn {
+  height: 40px;
+  width: 50%;
+  background-color: var(--pink-50);
+  border: none;
+  color: var(--white);
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
+
+.editBtn:hover {
+  background-color: var(--pink-40);
+}
+
+.imgPriview {
+  width: 250px;
+  height: auto;
+}

@@ -1,36 +1,21 @@
-doctype html
-html(lang='en')
-  head
-    meta(charset='UTF-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous")
-    style
-      include ../public/css/edit.css
-      include ../public/css/navbar.css
-      include ../public/css/footer.css
-
-    
-    title Document
-  body
-    include partials/navbar.pug
-    .container.d-flex.text-center.justify-content-center.pt-2
-      .row
-        //FORM
-        .col-md-12
-          .card
-            .card-body
-              form(action=`/update/${prod.id}`, method="POST", enctype="multipart/form-data")
-                .form-group
-                  input(type="text", name="title", placeholder="Inserte un titulo", class="form-control is-valid",required, value=`${prod.title}`)
-                .form-group
-                  input(type="text", name="price", placeholder="Inserte un precio", class="form-control  is-valid", required, value=`${prod.price}`)
-                .form-group
-                  textarea(name="description", cols="80", class="form-control is-valid", placeholder="Inserte descripcion", required) #{prod.description}
-                .form-group
-                  input(type="file", class="form-control-file is-valid", id="image", name="image")
-                  br
-                  img(src=`${prod.imageUrl}` class="rounded imgPriview" alt="")
-                button(type="submit", class="btn btn-primary btn-block") Guardar
-
-    script(src='/js/javascript.js')
-    include partials/footer.pug
+extends templates/template 
+block append config
+  - actual_page = `Editando ${prod.title}`;
+block header
+block main
+  .flex-container
+    div.editContainer
+      form(action="", method="post", enctype="multipart/form-data")
+        div
+          input(type="text", name="title", placeholder="Inserte un titulo", class="editInput",required, value=`${prod.title}`)
+        div
+          input(type="text", name="title", placeholder="Inserte un titulo", class="editInput",required, value=`${prod.price}`)
+        div
+          textarea(name="description", cols="40", rows="8", placeholder="Inserte descripcion", class="editTextarea", required) #{prod.description}
+        div
+          input(type="file" id="file")
+          label(for="file") choose a file
+        div
+          img(src=`${prod.imageUrl}` class="imgPriview" alt="")
+        button(type="submit", class="editBtn") Guardar
+  script(src='/js/javascript.js')
