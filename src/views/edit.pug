@@ -5,7 +5,7 @@ block header
 block main
   .flex-container
     div.editContainer
-      form(action="", method="post", enctype="multipart/form-data")
+      form(action="/update", method="post", enctype="multipart/form-data")
         div
           input(type="text", name="title", placeholder="Inserte un titulo", class="editInput",required, value=`${prod.title}`)
         div
@@ -14,7 +14,7 @@ block main
           textarea(name="description", cols="40", rows="8", placeholder="Inserte descripcion", class="editTextarea", required) #{prod.description}
         div
           input(type="file" id="file")
-          label(for="file") choose a file
+          label(for="file") Selecciona una imagen 
         div
           img(src=`${prod.imageUrl}` class="imgPriview" alt="")
         button(type="submit", class="editBtn") Guardar

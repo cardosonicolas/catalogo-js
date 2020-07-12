@@ -3,15 +3,15 @@ block append config
  - actual_page = "Registrate";
 block header
 block main
-  div.flex-container.resgBorderRadius
+  div.flex-container.lrBorderRadius
     div.resg
-      div.resgHead
+      div.lrHead
         h1 Registrate
       form(action="/register", method="post", class="resgBody")
         div
-          input(type="text", name="name", placeholder= "Ingresa un usuario", class="resgInput", required)
-          input(type="email", name="email", placeholder= "Ingresa tu email", class="resgInput" required)
-          input(type="password", name="password", placeholder= "Ingresa tu password",class="resgInput", required)
-          input(type="password", name="confirm_password", placeholder= "Confirma tu password", class="resgInput", required)
+          input(type="text", name="name", placeholder= "Ingresa un usuario", class="lrInput", required)
+          input(type="email", name="email", placeholder= "Ingresa tu email", class="lrInput" required)
+          input(type="password", name="password", placeholder= "Ingresa tu password",class="lrInput", required)
+          input(type="password", name="confirm_password", placeholder= "Confirma tu password", class="lrInput", required)
         div
-          button(type="submit", class="btnResg") Registrar
+          button(type="submit", class="lrBtn") Registrar

@@ -6,22 +6,16 @@
   --pink-70: hsl(354, 71%, 70%);
   --pink-80: hsl(354, 71%, 80%);
   --pink-90: hsl(354, 71%, 90%);
-
-  --color-bg-btn: #0062cc;
-  --color-bg-btn-hover: #0062aa;
-  --color-shadow-btn-active: rgba(0, 0, 0, 0.3);
-  --color-border-field: rgb(200, 200, 200);
 }
 
 .editContainer {
-  height: 100%;
-  width: 50%;
   text-align: center;
+  padding: 0.5em;
 }
 
 .editInput {
   height: 30px;
-  width: 50%;
+  width: 100%;
   margin-top: 1em;
   padding: 0 25px 0 25px;
   font-size: 20px;
@@ -31,7 +25,7 @@
 
 .editTextarea {
   height: 80px;
-  width: 50%;
+  width: 100%;
   margin-top: 1em;
   padding: 0 25px 0 25px;
   font-size: 20px;
@@ -70,7 +64,6 @@
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: "Poppins", sans-serif;
   font-size: 1rem;
   font-weight: 700;
   line-height: 2rem;
