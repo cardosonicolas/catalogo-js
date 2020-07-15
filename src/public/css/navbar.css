@@ -27,7 +27,6 @@
 
 .menu-item {
   color: var(--pink-50);
-  padding-right: 1em;
 }
 
 @media (min-width: 992px) {
@@ -35,6 +34,10 @@
     flex-flow: row wrap;
     padding: 0.5em 0 0.5em 0;
     justify-content: flex-end;
+  }
+
+  .menu-item {
+    padding-right: 1em;
   }
 
   .menu a:first-child {
