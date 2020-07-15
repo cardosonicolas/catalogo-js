@@ -6,7 +6,6 @@
 
 .content {
   padding: 1em;
-  min-height: 100vh;
 }
 
 .card {
@@ -53,6 +52,11 @@
 }
 
 @media (min-width: 992px) {
+  .content {
+    padding: 1em;
+    min-height: 100vh;
+  }
+
   .card {
     height: 350px;
     width: 375px;

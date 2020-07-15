@@ -5,8 +5,10 @@ nav.menu
     if page === "Home"
       a.menu-item(href="/") #{page}
     else
-      a.menu-item(href="/"+page) #{page}
-      //a.menu-item(href="#"+page) #{page}
+      //a.menu-item(href="/"+page) #{page}
+      a.menu-item(href="#"+page) #{page}
   if user
+    li
+        a.menu-item(href='/add') Agregar
     li
       a.menu-item(href='/logout') Logout

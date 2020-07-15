@@ -1,12 +1,23 @@
+:root {
+  --white: hsl(0, 0%, 100%);
+  --pink-40: hsl(354, 71%, 40%);
+  --pink-50: hsl(354, 71%, 50%);
+  --pink-60: hsl(354, 71%, 60%);
+  --pink-70: hsl(354, 71%, 70%);
+  --pink-80: hsl(354, 71%, 80%);
+  --pink-90: hsl(354, 71%, 90%);
+}
+
 .container {
-  overflow: hidden;
+  background-color: var(--white);
   padding: 0.5em;
-  background-color: #fff;
 }
 
 #image {
   width: 100%;
   height: auto;
+  max-width: 525px;
+  border: 1px solid black;
 }
 
 .prodTitle {
@@ -14,17 +25,20 @@
 }
 
 .prodPrice {
-  color: var(--rosado);
+  color: var(--pink-50);
 }
-.padding-05 {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+
+.prodDescrip {
+  color: #777;
+}
+
+.multiline {
+  white-space: pre-wrap;
 }
 
 @media (min-width: 992px) {
   .container {
     display: flex;
-    padding: 1em;
   }
   .prodHead {
     width: 50%;
@@ -33,7 +47,6 @@
   .prodBody {
     display: flex;
     flex-direction: column;
-    width: 50%;
     margin: 1em;
   }
 

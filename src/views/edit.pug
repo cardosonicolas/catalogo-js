@@ -5,15 +5,15 @@ block header
 block main
   .flex-container
     div.editContainer
-      form(action="/update", method="post", enctype="multipart/form-data")
+      form(action=`/update/${prod.id}`, method="post", enctype="multipart/form-data")
         div
           input(type="text", name="title", placeholder="Inserte un titulo", class="editInput",required, value=`${prod.title}`)
         div
-          input(type="text", name="title", placeholder="Inserte un titulo", class="editInput",required, value=`${prod.price}`)
+          input(type="text", name="price", placeholder="Inserte un titulo", class="editInput",required, value=`${prod.price}`)
         div
           textarea(name="description", cols="40", rows="8", placeholder="Inserte descripcion", class="editTextarea", required) #{prod.description}
         div
-          input(type="file" id="file")
+          input(type="file" id="file" name="image")
           label(for="file") Selecciona una imagen 
         div
           img(src=`${prod.imageUrl}` class="imgPriview" alt="")

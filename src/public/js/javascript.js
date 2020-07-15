@@ -38,7 +38,7 @@ lista.forEach((el) => {
 $cards.appendChild($fragment);
  */
 
-const $fImg = document.getElementById("image"),
+const $fImg = document.getElementById("file"),
   $imgPriview = document.querySelector(".imgPriview");
 
 $fImg.addEventListener("change", function () {

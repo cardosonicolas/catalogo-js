@@ -3,43 +3,38 @@ block append config
  - actual_page = "Productos";
 block header
 block main
-  .container.d-flex.text-center
-    .row
-      //FORM
-      .col-md-5
-        .card
-          .card-body
-            form(action="/add" method="POST" enctype="multipart/form-data")
-              .form-group
-                input(type="text" name="title" placeholder="Inserte un titulo" class="form-control is-valid",required)
-              .form-group
-                input(type="text" name="price" placeholder="Inserte un precio" class="form-control  is-valid", required)
-              .form-group
-                textarea(name="description" cols="80" class="form-control is-valid" placeholder="Inserte descripcion", required)
-              .form-group
-                input(type="file" class="form-control-file is-valid" name="image" id="image")
-                br
-                img(src="http://placehold.it/250" class="rounded imgPriview" alt="")
-              button(type="submit" class="btn btn-primary btn-block") Agregar
-      //LIST
-      .col-md-7
-        table.table.table-bordered.table-hover.text-center
-          thead
-            tr  script(src='/js/javascript.js')
-              th ID
-              th Tile
-              th Price
-              th Operacion
-          tbody      
-            each prod in prods
-              tr
-                td #{prod.id}
-                td #{prod.title}
-                td #{prod.price}
-                td.d-flex.justify-content-center
-                  a(href=`/edit/${prod.id}`, class="btn btn-info mr-4") Edit
-                  a(href=`/delete/${prod.id}`, class="btn btn-danger mr-4" method="delete") Delete
+  .flex-container
+    div.editContainer
+      form(action="/add", method="post", enctype="multipart/form-data")
+        div
+          input(type="text", name="title", placeholder="Inserte un titulo", class="editInput",required)
+        div
+          input(type="text", name="price", placeholder="Inserte un precio", class="editInput",required)
+        div
+          textarea(name="description", cols="40", rows="8", placeholder="Inserte una descripcion", class="editTextarea", required)
+        div
+          input(type="file" id="file" name="image")
+          label(for="file") Selecciona una imagen 
+        div
+          img(src="http://placehold.it/250", class="imgPriview" alt="")
+        button(type="submit", class="editBtn") Guardar
+    div.editContainer
+      table
+        caption Lista de productos
+        thead
+          tr
+            th(scope='col') ID
+            th(scope='col') Título
+            th(scope='col') Precio
+            th(scope='col') Operación
+        tbody
+        each prod in prods
+          tr
+            td(data-label='ID') #{prod.id}
+            td(data-label='Título') #{prod.title}
+            td(data-label='Precio') $#{prod.price}
+            td(data-label='Operación')
+              a(href=`/edit/${prod.id}`, class="btnOpe") Edit
+              a(href=`/delete/${prod.id}`, class="btnOpe" method="delete") Delete
 
-  script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js', integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj', crossorigin='anonymous')
-  script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo', crossorigin='anonymous')
-  script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js', integrity='sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI', crossorigin='anonymous')
+  script(src='/js/javascript.js')

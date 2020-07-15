@@ -8,7 +8,7 @@ const passport = require("passport");
 const bodyParser = require("body-parser");
 
 /* ctrl + p = archivos
-ctlr + shift + f = codigo */
+ctrl + shift + f = codigo */
 require("./config/passport");
 
 // importing router

@@ -14,6 +14,7 @@ productCtrl.renderAllprod = (req, res) => {
 
 productCtrl.createProd = async (req, res) => {
   let img = {};
+  console.log(req.file);
   if (req.file != null) {
     img = await cloudinary.v2.uploader.upload(req.file.path, {
       folder: "catalogo_js",
