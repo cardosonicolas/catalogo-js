@@ -14,7 +14,6 @@ productCtrl.renderAllprod = (req, res) => {
 
 productCtrl.createProd = async (req, res) => {
   let img = {};
-  console.log(req.file);
   if (req.file != null) {
     img = await cloudinary.v2.uploader.upload(req.file.path, {
       folder: "catalogo_js",
@@ -27,6 +26,7 @@ productCtrl.createProd = async (req, res) => {
     imageUrl: img.secure_url,
     publicId: img.public_id,
     userId: req.user.id,
+    state: false,
   });
   req.flash("success_msg", "Producto agregado");
   res.redirect("/add");
@@ -44,27 +44,27 @@ productCtrl.findByPK = (req, res) => {
 
 //Hacer funcionar
 productCtrl.updateProd = async (req, res) => {
+  let img = {};
   if (req.file != null) {
-    //cloudinary.v2.uploader.destroy();
-    result = await cloudinary.v2.uploader.upload(req.file.path, {
+    img = await cloudinary.v2.uploader.upload(req.file.path, {
       folder: "catalogo_js",
     });
-
-    await Product.update(
-      {
-        title: req.body.title,
-        price: req.body.price,
-        description: req.body.description,
-        imageUrl: result.secure_url,
-        publicId: result.public_id,
-      },
-      {
-        where: {
-          id: req.params.id,
-        },
-      }
-    );
   }
+
+  await Product.update(
+    {
+      title: req.body.title,
+      price: req.body.price,
+      description: req.body.description,
+      imageUrl: img.secure_url,
+      publicId: img.public_id,
+    },
+    {
+      where: {
+        id: req.params.id,
+      },
+    }
+  );
   req.flash("success_msg", "Producto actualizado");
   res.redirect("/add");
 };
@@ -83,6 +83,26 @@ productCtrl.deleteProd = (req, res) => {
     .then((prod) => {
       res.render("productos", { prod });
       req.flash("success_msg", "Producto Eliminado");
+      res.redirect("/add");
+    });
+};
+
+productCtrl.stateChange = (req, res) => {
+  Product.findByPk(req.params.id)
+    .then(async (prod) => {
+      console.log(prod.publicId);
+      if (prod.state) {
+        prod.state = false;
+        prod.save();
+        req.flash("success_msg", "Producto Deshabilitado");
+      } else {
+        prod.state = true;
+        prod.save();
+        req.flash("success_msg", "Producto Habilitado");
+      }
+    })
+    .then((prod) => {
+      res.render("productos", { prod });
       res.redirect("/add");
     });
 };

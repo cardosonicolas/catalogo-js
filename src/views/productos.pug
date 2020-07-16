@@ -35,6 +35,10 @@ block main
             td(data-label='Precio') $#{prod.price}
             td(data-label='Operación')
               a(href=`/edit/${prod.id}`, class="btnOpe") Edit
-              a(href=`/delete/${prod.id}`, class="btnOpe" method="delete") Delete
-
+              a(href=`/delete/${prod.id}`, class="btnOpe") Delete
+              if(prod.state)
+                a(href=`/enable/${prod.id}`, class="btnOpe") Deshabilitar
+              else
+                a(href=`/enable/${prod.id}`, class="btnOpe") Habilitar
+                
   script(src='/js/javascript.js')

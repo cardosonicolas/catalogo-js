@@ -1,0 +1,11 @@
+if success_msg
+  each success in success_msg
+    div(class="", role="alert")| #{ success }
+      button(type="button", class="close", data-dismiss="alert", aria-label="Close")
+        span(aria-hidden="true")|&times;
+if error_msg
+  each er in error_msg
+    div(class="", role="alert")| #{ er }
+      button(type="button", class="close", data-dismiss="alert", aria-label="Close")
+        span(aria-hidden="true")|&times;
+

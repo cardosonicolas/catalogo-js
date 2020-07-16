@@ -11,18 +11,21 @@ userCtrl.register = async (req, res) => {
   if ((await User.findAll()).length < 10) {
     if (password != confirm_password) {
       req.flash("error_msg", "Las password no coinciden.");
+      res.redirect("/register");
     } else {
-      const userEmail = User.findOne({ where: { email: email } });
-      if (!userEmail) {
-        req.flash("error_msg", "El email ya esta en uso.");
-      } else {
-        await User.create({
-          name: name,
-          email: email,
-          password: password,
+      await User.create({
+        name: name,
+        email: email,
+        password: password,
+      })
+        .then(() => {
+          req.flash("success_msg", "Te has registrado con exito");
+          res.redirect("/login");
+        })
+        .catch((err) => {
+          req.flash("error_msg", err.message);
+          res.redirect("/register");
         });
-        res.redirect("/login");
-      }
     }
   } else {
     req.flash("error_msg", "Ya no tienes permiso para registrarte");

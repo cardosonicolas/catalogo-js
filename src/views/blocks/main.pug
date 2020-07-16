@@ -1,10 +1,11 @@
 h1#Catalogo
 section.flex-container.content
   each prod in prods
-    a(href=`/prod/${prod.id}`)
-      .flex-item
-        .card.flex-column
-          div.card-img.flex-column(style = `background-image: url(${prod.imageUrl});`)
-            p.card-precio="$"+prod.price
-          .card-body
-            h3.card-prod=prod.title
+    if(prod.state)
+      a(href=`/prod/${prod.id}`)
+        .flex-item
+          .card.flex-column
+            div.card-img.flex-column(style = `background-image: url(${prod.imageUrl});`)
+              p.card-precio="$"+prod.price
+            .card-body
+              h3.card-prod=prod.title

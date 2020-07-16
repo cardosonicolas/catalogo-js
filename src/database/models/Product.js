@@ -31,6 +31,7 @@ Product.init(
         },
       },
     },
+
     description: {
       type: DataTypes.STRING,
     },
@@ -42,6 +43,10 @@ Product.init(
 
     publicId: {
       type: DataTypes.STRING(),
+    },
+
+    state: {
+      type: DataTypes.BOOLEAN,
     },
   },
   {

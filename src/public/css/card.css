@@ -14,8 +14,10 @@
 }
 
 #image {
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
-  height: auto;
   max-width: 525px;
   border: 1px solid black;
 }
@@ -29,7 +31,7 @@
 }
 
 .prodDescrip {
-  color: #777;
+  color: hsl(0, 0%, 47%);
 }
 
 .multiline {
@@ -37,6 +39,13 @@
 }
 
 @media (min-width: 992px) {
+  #image {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    border: 1px solid black;
+  }
+
   .container {
     display: flex;
   }

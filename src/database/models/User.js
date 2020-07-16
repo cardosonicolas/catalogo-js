@@ -24,7 +24,10 @@ User.init(
     email: {
       type: DataTypes.TEXT,
       allowNull: false,
-      unique: true,
+      unique: {
+        args: true,
+        msg: "El Email ya esta en uso",
+      },
       validate: {
         notNull: {
           msg: "No puede contener valores nulos",
@@ -39,10 +42,6 @@ User.init(
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      len: {
-        args: [8, 255],
-        msg: "Las password tiene que ser entre 8 y 255 caracteres",
-      },
       set(valor) {
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(valor, salt);
