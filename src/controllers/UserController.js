@@ -8,7 +8,7 @@ userCtrl.renderRegister = (req, res) => {
 
 userCtrl.register = async (req, res) => {
   const { name, email, password, confirm_password } = req.body;
-  if ((await User.findAll()).length < 10) {
+  if ((await User.findAll()).length > 1) {
     if (password != confirm_password) {
       req.flash("error_msg", "Las password no coinciden.");
       res.redirect("/register");

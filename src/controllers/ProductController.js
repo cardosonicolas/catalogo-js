@@ -72,13 +72,10 @@ productCtrl.updateProd = async (req, res) => {
 productCtrl.deleteProd = (req, res) => {
   Product.findByPk(req.params.id)
     .then(async (prod) => {
-      console.log(prod.publicId);
       if (prod.publicId != null) {
         await cloudinary.v2.uploader.destroy(prod.publicId);
-        prod.destroy();
-      } else {
-        prod.destroy();
       }
+      prod.destroy();
     })
     .then((prod) => {
       res.render("productos", { prod });
@@ -89,17 +86,15 @@ productCtrl.deleteProd = (req, res) => {
 
 productCtrl.stateChange = (req, res) => {
   Product.findByPk(req.params.id)
-    .then(async (prod) => {
-      console.log(prod.publicId);
+    .then((prod) => {
       if (prod.state) {
         prod.state = false;
-        prod.save();
         req.flash("success_msg", "Producto Deshabilitado");
       } else {
         prod.state = true;
-        prod.save();
         req.flash("success_msg", "Producto Habilitado");
       }
+      prod.save();
     })
     .then((prod) => {
       res.render("productos", { prod });
