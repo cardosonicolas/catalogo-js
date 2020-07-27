@@ -9,6 +9,7 @@
 }
 
 .editContainer {
+  align-self: start;
   text-align: center;
   padding: 0.5em;
 }
@@ -123,8 +124,7 @@ table {
   border-collapse: collapse;
   margin: 0;
   padding: 0;
-  width: 100%;
-  table-layout: fixed;
+  width: 50%;
 }
 
 table caption {

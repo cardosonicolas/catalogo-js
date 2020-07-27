@@ -14,6 +14,7 @@
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 .hero-image div {
   min-height: inherit;

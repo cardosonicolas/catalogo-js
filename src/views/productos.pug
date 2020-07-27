@@ -3,7 +3,7 @@ block append config
  - actual_page = "Productos";
 block header
 block main
-  .flex-container
+  div.flex-container
     div.editContainer
       form(action="/add", method="post", enctype="multipart/form-data")
         div
@@ -18,7 +18,7 @@ block main
         div
           img(src="http://placehold.it/250", class="imgPriview" alt="")
         button(type="submit", class="editBtn") Guardar
-    div.editContainer
+    div
       table
         caption Lista de productos
         thead
