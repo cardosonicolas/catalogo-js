@@ -43,29 +43,28 @@ productCtrl.findByPK = (req, res) => {
 };
 
 //Hacer funcionar
-productCtrl.updateProd = async (req, res) => {
+productCtrl.updateProd = (req, res) => {
   let img = {};
-  if (req.file != null) {
-    img = await cloudinary.v2.uploader.upload(req.file.path, {
-      folder: "catalogo_js",
-    });
-  }
+  Product.findByPk(req.params.id)
+    .then(async (prod) => {
+      prod.title = req.body.title;
+      prod.price = req.body.price;
+      prod.description = req.body.description;
 
-  await Product.update(
-    {
-      title: req.body.title,
-      price: req.body.price,
-      description: req.body.description,
-      imageUrl: img.secure_url,
-      publicId: img.public_id,
-    },
-    {
-      where: {
-        id: req.params.id,
-      },
-    }
-  );
-  req.flash("success_msg", "Producto actualizado");
+      if (req.file != null) {
+        await cloudinary.v2.uploader.destroy(prod.publicId);
+        img = await cloudinary.v2.uploader.upload(req.file.path, {
+          folder: "catalogo_js",
+        });
+        prod.imageUrl = img.secure_url;
+        prod.publicId = img.public_id;
+      }
+      prod.save();
+      req.flash("success_msg", "Producto actualizado");
+    })
+    .catch(() => {
+      req.flash("error_msg", "Sucedio un error");
+    });
   res.redirect("/add");
 };
 
