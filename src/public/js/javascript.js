@@ -1,3 +1,27 @@
+import hamburgerMenu from "./menu_hamburger.js";
+
+const d = document;
+
+d.addEventListener("DOMContentLoaded", (e) => {
+  hamburgerMenu(".panel-btn", ".panel", ".menu-hamb a");
+});
+
+const $fImg = document.getElementById("file"),
+  $imgPriview = document.querySelector(".imgPriview");
+
+$fImg.addEventListener("change", function () {
+  const file = this.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+
+    reader.addEventListener("load", function () {
+      $imgPriview.setAttribute("src", this.result);
+    });
+    reader.readAsDataURL(file);
+  }
+});
+
 /* const prod1 = {
   nombre: "Producto 1",
   precio: "$" + 100,
@@ -37,19 +61,3 @@ lista.forEach((el) => {
 });
 $cards.appendChild($fragment);
  */
-
-const $fImg = document.getElementById("file"),
-  $imgPriview = document.querySelector(".imgPriview");
-
-$fImg.addEventListener("change", function () {
-  const file = this.files[0];
-
-  if (file) {
-    const reader = new FileReader();
-
-    reader.addEventListener("load", function () {
-      $imgPriview.setAttribute("src", this.result);
-    });
-    reader.readAsDataURL(file);
-  }
-});
