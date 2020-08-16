@@ -18,6 +18,10 @@
   font-size: 30px;
 }
 
+a {
+  color: var(--pink-50);
+}
+
 .flex-container-footer {
   width: 100%;
   display: flex;
